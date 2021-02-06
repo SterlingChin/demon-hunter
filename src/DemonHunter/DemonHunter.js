@@ -21,19 +21,14 @@ const TableContainer = styled('p')`
 `
 TableContainer.displayName = 'TableContainer'
 
-const testZips = '92240, 92282, 92276, 92236, 92241, 92234, 92235, 92270, 92253, 92211, 92255, 92260, 92261, 92258, 92262, 92263, 92264, 92201, 92210, 92202, 92203'
-const testBusinessUnits = '51893976, 51893712, 51893234, 51893085, 51893076, 51885229'
-
 export const DemonHunter = () => {
   const [zipCodes, setZipCodes] = useState([])
   const [businessUnits, setBusinessUnits] = useState([])
-  const [tableRow, setTableRow] = useState()
+  const [tableRow, setTableRow] = useState([])
   const [error, setError] = useState(false)
   
-  const alignBusinesses = () => {
+  const submit = () => {
     const matchedBusinesses = []
-    setZipCodes(testZips)
-    setBusinessUnits(testBusinessUnits)
     if(zipCodes.length === 0 || businessUnits.length === 0) return setError(true)
     setError(false)
     formatInput(zipCodes).map(zipCode => {
@@ -44,16 +39,23 @@ export const DemonHunter = () => {
     setTableRow(matchedBusinesses)
   }
 
+  const clear = () => {
+    setZipCodes([])
+    setBusinessUnits([])
+    setTableRow([])
+  }
+
   return (
     <DemonHunterContainer>
       <h1>DemonHunter</h1>
       <InputContainer>
-        <input type='text' id='zip-code' name='zipcodes' placeholder={testZips} onChange={event => setZipCodes(event.target.value)}></input>
-        <input type='text' id='business-Unit' name='businessUnits' placeholder={testBusinessUnits} onChange={event => setBusinessUnits(event.target.value)}></input>
+        <input type='text' id='zip-code' name='zipcodes' placeholder='Zip Codes' onChange={event => setZipCodes(event.target.value)} value={zipCodes}></input>
+        <input type='text' id='business-Unit' name='businessUnits' placeholder='Business Units' onChange={event => setBusinessUnits(event.target.value)} value={businessUnits}></input>
         {error && <div>You done messed up A-A-Ron!</div>}
-        <button onClick={() => alignBusinesses()}>Enter</button>
+        <button onClick={() => submit()}>Enter</button>
+        <button onClick={() => clear()}>Clear</button>
       </InputContainer>
-        {tableRow && tableRow.map((row, i) => 
+        {tableRow.map((row, i) => 
           <div key={i}>{row[0]} {row[1]}</div>
         )}
     </DemonHunterContainer>
