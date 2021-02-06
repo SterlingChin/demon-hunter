@@ -16,7 +16,7 @@ const InputContainer = styled('div')`
 `
 InputContainer.displayName = 'InputContainer'
 
-const TableContainer = styled('table')`
+const TableContainer = styled('p')`
     
 `
 TableContainer.displayName = 'TableContainer'
@@ -54,13 +54,9 @@ export const DemonHunter = () => {
         <button onClick={() => alignBusinesses()}>Enter</button>
       </InputContainer>
       <TableContainer>
-        <tbody>
         {tableRow && tableRow.map((row, i) => 
-          <tr key={i}>
-            <td>{row[0]}, {row[1]}</td>
-          </tr>
+          <p key={i}>{row[0]} {row[1]}</p>
         )}
-        </tbody>
       </TableContainer>
     </DemonHunterContainer>
   );
