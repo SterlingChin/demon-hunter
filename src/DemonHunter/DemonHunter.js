@@ -53,11 +53,9 @@ export const DemonHunter = () => {
         {error && <div>You done messed up A-A-Ron!</div>}
         <button onClick={() => alignBusinesses()}>Enter</button>
       </InputContainer>
-      <TableContainer>
         {tableRow && tableRow.map((row, i) => 
-          <p key={i}>{row[0]} {row[1]}</p>
+          <div key={i}>{row[0]} {row[1]}</div>
         )}
-      </TableContainer>
     </DemonHunterContainer>
   );
 };
