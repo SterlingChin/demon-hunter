@@ -1,0 +1,9 @@
+{
+  "workbench.colorCustomizations": {
+    "sideBarSectionHeader.foreground": "#c5c5c5",
+    "tab.activeForeground": "#f39c12",
+    "activityBar.background": "#3A186F",
+    "titleBar.activeBackground": "#51229C",
+    "titleBar.activeForeground": "#FDFDFE"
+  }
+}
