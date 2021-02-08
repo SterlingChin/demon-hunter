@@ -1,10 +1,10 @@
 import './App.css';
-import DemonHunter from './DemonHunter/DemonHunter';
+import ZenGarden from './ZenGarden';
 
 function App() {
   return (
     <div className="App">
-      <DemonHunter />
+      <ZenGarden />
     </div>
   );
 }
